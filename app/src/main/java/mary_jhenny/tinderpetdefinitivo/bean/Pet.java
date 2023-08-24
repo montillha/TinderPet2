@@ -14,6 +14,7 @@ public class Pet {
     private String estado;
     private String cidade;
     private String descricao;
+    private String foto;
     private String emailTutor;
 
 
@@ -34,8 +35,8 @@ public class Pet {
         this.id = id;
     }
 
-    public Pet(String nome, String especie, String raca, String sexo, String pedigree, String nascimento, String tamanho, String estado, String cidade, String descricao, String emailTutor) {
-        this.id = sequence++;
+    public Pet(int id, String nome, String especie, String raca, String sexo, String pedigree, String nascimento, String tamanho, String estado, String cidade, String descricao, String foto, String emailTutor) {
+        this.id = id;
         this.nome = nome;
         this.especie = especie;
         this.raca = raca;
@@ -46,13 +47,38 @@ public class Pet {
         this.estado = estado;
         this.cidade = cidade;
         this.descricao = descricao;
+        this.foto = foto;
         this.emailTutor = emailTutor;
+    }
+
+    public Pet(String nome, String especie, String raca, String sexo, String pedigree, String nascimento, String tamanho, String estado, String cidade, String descricao, String foto, String emailTutor) {
+        this.nome = nome;
+        this.especie = especie;
+        this.raca = raca;
+        this.sexo = sexo;
+        this.pedigree = pedigree;
+        this.nascimento = nascimento;
+        this.tamanho = tamanho;
+        this.estado = estado;
+        this.cidade = cidade;
+        this.descricao = descricao;
+        this.foto = foto;
+        this.emailTutor = emailTutor;
+    }
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
     }
 
     @Override
     public String toString() {
         return "Pet{" +
-                "nome='" + nome + '\'' +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
                 ", especie='" + especie + '\'' +
                 ", raca='" + raca + '\'' +
                 ", sexo='" + sexo + '\'' +
@@ -62,6 +88,7 @@ public class Pet {
                 ", estado='" + estado + '\'' +
                 ", cidade='" + cidade + '\'' +
                 ", descricao='" + descricao + '\'' +
+                ", foto='" + foto + '\'' +
                 ", emailTutor='" + emailTutor + '\'' +
                 '}';
     }

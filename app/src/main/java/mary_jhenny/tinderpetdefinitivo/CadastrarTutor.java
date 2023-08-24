@@ -45,7 +45,7 @@ public class CadastrarTutor extends AppCompatActivity {
             long resultado= cdao.inserirTutor(t);
 
 
-            Intent i = new Intent(getApplicationContext(),CadastrarPet.class);
+            Intent i = new Intent(getApplicationContext(),Foto.class);
             i.putExtra("email", email);
 
             if (resultado ==-1){
@@ -54,12 +54,12 @@ public class CadastrarTutor extends AppCompatActivity {
             }else{
                 Toast.makeText(CadastrarTutor.this, "Tutor inserido com sucesso", Toast.LENGTH_SHORT).show();
                 cdao.inserirTel_tutor(tel);
-                //erro previsto
 
                 Intent I = new Intent(getApplicationContext(), CadastrarPet.class);
                 startActivity(I);
 
             }
+            finish();
 
 
 

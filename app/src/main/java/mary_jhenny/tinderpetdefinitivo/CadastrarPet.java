@@ -63,16 +63,20 @@ public class CadastrarPet extends AppCompatActivity {
             String pedigree = txtPedigree.getText().toString();
             String sexo = txtSexo.getText().toString();
 
-            Intent i2= getIntent();
-            String email = i2.getStringExtra("email");
-            ConexaoDao cdao = new ConexaoDao(CadastrarPet.this);
-            Pet p = new Pet(nome,especie,raca,sexo,pedigree,nasc,porte,estado,cidade,descricao,email);
-            long resultado = cdao.inserirPet(p);
-
-            int id = p.getId();
+            Intent i = new Intent(getApplicationContext(),Foto.class);
+            i.putExtra("nome",nome);
+            i.putExtra("raca",raca);
+            i.putExtra("especie",especie);
+            i.putExtra("porte",porte);
+            i.putExtra("cidade",cidade);
+            i.putExtra("estado",estado);
+            i.putExtra("nasc",nasc);
+            i.putExtra("descricao",descricao);
+            i.putExtra("pedigree",pedigree);
+            i.putExtra("sexo",sexo);
             Intent i_foto = new Intent(getApplicationContext(), Foto.class);
-            i_foto.putExtra("id",id);
             startActivity(i_foto);
+            finish();
 
 
         }

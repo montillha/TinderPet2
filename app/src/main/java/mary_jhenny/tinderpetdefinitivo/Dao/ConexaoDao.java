@@ -30,7 +30,8 @@ public class ConexaoDao {
     private final int COLUNA_ESTADO = 8;
     private final int COLUNA_CIDADE= 9;
     private final int COLUNA_DESCRICAO = 10;
-    private final int COLUNA_EMAILTUTOR = 11;
+    private final int COLUNA_FOTO = 11;
+    private final int COLUNA_EMAILTUTOR = 12;
 
     //telTutor
     private final int COLUNA_TELEFONE=1;
@@ -41,6 +42,12 @@ public class ConexaoDao {
 
     public ConexaoDao(Context context) {
         db = context.openOrCreateDatabase("TinderPet", Context.MODE_PRIVATE, null);
+
+        // Criando tabela Tutor
+        db.execSQL( "CREATE TABLE IF NOT EXISTS tutor( email TEXT  PRIMARY KEY UNIQUE ," +
+                " nome  TEXT," +
+                " senha TEXT);"
+        );
 
         // Criando tabela Pet
         db.execSQL("CREATE TABLE IF NOT EXISTS pet(" +
@@ -55,15 +62,11 @@ public class ConexaoDao {
                 "estado TEXT, " +
                 "cidade TEXT, " +
                 "descricao TEXT, " +
+                "foto TEXT,"+
                 "emailTutor TEXT,"+
                 "FOREIGN KEY (emailTutor) REFERENCES TUTOR(email));"
         );
 
-        // Criando tabela Tutor
-        db.execSQL( "CREATE TABLE IF NOT EXISTS tutor( email TEXT  PRIMARY KEY UNIQUE ," +
-                " nome  TEXT," +
-                " senha TEXT);"
-        );
 
         //Criando a tabela telTutor
         db.execSQL(" CREATE TABLE IF NOT EXISTS telTutor(email TEXT," +
@@ -73,12 +76,12 @@ public class ConexaoDao {
         );
 
 
-        //Criando a tabela fotoPet
+        /*Criando a tabela fotoPet
         db.execSQL("CREATE TABLE IF NOT EXISTS imgPet(id INTEGER," +
                 " foto TEXT  ," +
                 " PRIMARY KEY(id,foto)," +
                 "FOREIGN KEY(id)REFERENCES PET(id));"
-        );
+        );*/
 
 
         //Criando a tabela curtida
@@ -114,6 +117,7 @@ public class ConexaoDao {
         valores.put("estado",p.getEstado());
         valores.put("cidade",p.getCidade());
         valores.put("descricao", p.getDescricao());
+        valores.put("foto", p.getFoto());
         valores.put("emailTutor", p.getEmailTutor());
         long resultado = db.insert("pet", null, valores);
         return resultado;
@@ -137,6 +141,7 @@ public class ConexaoDao {
         valores.put("estado",p.getEstado());
         valores.put("cidade",p.getCidade());
         valores.put("descricao", p.getDescricao());
+        valores.put("foto", p.getFoto());
         valores.put("emailTutor", p.getEmailTutor());
         int resultado = db.update("pet", valores, where,null);
         return resultado;
@@ -147,21 +152,19 @@ public class ConexaoDao {
         ArrayList<Pet> listaPets = new ArrayList<>();
         while (cursor.moveToNext()) {
             int id = Integer.parseInt(cursor.getString(COLUNA_ID));
-            String nomeP = cursor.getString(COLUNA_NOMEP);
+            String nome= cursor.getString(COLUNA_NOMEP);
             String especie= cursor.getString(COLUNA_ESPECIE);
             String raca= cursor.getString(COLUNA_RACA);
             String sexo= cursor.getString(COLUNA_SEXO);
-            String pedigree = cursor.getString(COLUNA_PEDIGREE);
-            String nascimento= cursor.getString(COLUNA_NASCIMENTO);
+            String pedigree= cursor.getString(COLUNA_PEDIGREE);
             String tamanho= cursor.getString(COLUNA_TAMANHO);
+            String nascimento= cursor.getString(COLUNA_NASCIMENTO);
             String estado= cursor.getString(COLUNA_ESTADO);
             String cidade= cursor.getString(COLUNA_CIDADE);
             String descricao= cursor.getString(COLUNA_DESCRICAO);
-            String emailtutor= cursor.getString(COLUNA_EMAILTUTOR);
-
-
-            Pet pet = new Pet(nomeP,especie,raca,sexo,pedigree,nascimento,tamanho,estado,cidade,descricao,emailtutor);
-
+            String foto= cursor.getString(COLUNA_FOTO);
+            String emailTutor= cursor.getString(COLUNA_EMAILTUTOR);
+            Pet pet= new Pet(id,nome,especie,raca,sexo,pedigree,nascimento,tamanho,estado,cidade,descricao,foto,emailTutor);
             listaPets.add(pet);
         }
 
@@ -174,7 +177,7 @@ public class ConexaoDao {
         cursor = db.rawQuery("SELECT * FROM pet WHERE id="+i,null);
         while (cursor.moveToNext()) {
             int id = Integer.parseInt(cursor.getString(COLUNA_ID));
-            String nomeP = cursor.getString(COLUNA_NOMEP);
+            String nome = cursor.getString(COLUNA_NOMEP);
             String especie= cursor.getString(COLUNA_ESPECIE);
             String raca= cursor.getString(COLUNA_RACA);
             String sexo= cursor.getString(COLUNA_SEXO);
@@ -184,19 +187,21 @@ public class ConexaoDao {
             String estado= cursor.getString(COLUNA_ESTADO);
             String cidade= cursor.getString(COLUNA_CIDADE);
             String descricao= cursor.getString(COLUNA_DESCRICAO);
-            String emailtutor= cursor.getString(COLUNA_EMAILTUTOR);
+            String foto = cursor.getString(COLUNA_FOTO);
+            String emailTutor= cursor.getString(COLUNA_EMAILTUTOR);
             p.setId(id);
-            p.setNome(nomeP);
+            p.setNome(nome);
             p.setEspecie(especie);
             p.setRaca(raca);
             p.setSexo(sexo);
-            p.setPedigree(pedigree);
-            p.setNascimento(nascimento);
             p.setTamanho(tamanho);
             p.setEstado(estado);
+            p.setPedigree(pedigree);
+            p.setNascimento(nascimento);
             p.setCidade(cidade);
             p.setDescricao(descricao);
-            p.setEmailTutor(emailtutor);
+            p.setFoto(foto);
+            p.setEmailTutor(emailTutor);
         }
         return p;
 
@@ -324,7 +329,7 @@ public class ConexaoDao {
         ContentValues valores;
         valores = new ContentValues();
         valores.put("id", imgPet.getId());
-        valores.put("telefone", imgPet.getFoto());
+        valores.put("foto", imgPet.getFoto());
         long resultado = db.insert("imgPet", null, valores);
         return resultado;
     }
@@ -370,6 +375,7 @@ public class ConexaoDao {
         }
         return imgPet;
     }
+
 
     public SQLiteDatabase getConnection() {
         return db;
