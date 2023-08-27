@@ -26,7 +26,7 @@ public class CadastrarTutor extends AppCompatActivity {
         setContentView(R.layout.activity_cadastrar_tutor_teste);
         txtNome = findViewById(R.id.txtNome);
         txtTelefone = findViewById(R.id.txtTelefone);
-        txtEmail = findViewById(R.id.txtEmail);
+        txtEmail= findViewById(R.id.txtEmail);
         txtSenha = findViewById(R.id.txtSenha);
         btnCadastrarT = findViewById(R.id.btnContinuar);
         btnCadastrarT.setOnClickListener(new Escutador_CadastrarT());
@@ -37,16 +37,12 @@ public class CadastrarTutor extends AppCompatActivity {
         public void onClick(View view) {
             ConexaoDao cdao = new ConexaoDao(CadastrarTutor.this);
             String nome = txtNome.getText().toString();
+            String email = txtEmail.getText().toString();
             String telefone  = txtTelefone.getText().toString();
-            String email  = txtEmail.getText().toString();
             String senha  = txtSenha.getText().toString();
             Tutor t  = new Tutor(email,nome,senha);
             TelTutor tel = new TelTutor(email,telefone);
             long resultado= cdao.inserirTutor(t);
-
-
-            Intent i = new Intent(getApplicationContext(),Foto.class);
-            i.putExtra("email", email);
 
             if (resultado ==-1){
                 Toast.makeText(CadastrarTutor.this, "Erro ao inserir tutor", Toast.LENGTH_SHORT).show();
@@ -54,12 +50,12 @@ public class CadastrarTutor extends AppCompatActivity {
             }else{
                 Toast.makeText(CadastrarTutor.this, "Tutor inserido com sucesso", Toast.LENGTH_SHORT).show();
                 cdao.inserirTel_tutor(tel);
-
-                Intent I = new Intent(getApplicationContext(), CadastrarPet.class);
-                startActivity(I);
+                Intent i = new Intent(getApplicationContext(), CadastrarPet.class);
+                i.putExtra("email", email);
+                startActivity(i);
 
             }
-            finish();
+           finish();
 
 
 

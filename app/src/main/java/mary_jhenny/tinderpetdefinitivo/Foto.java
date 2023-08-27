@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.Manifest;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -15,7 +16,6 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import mary_jhenny.tinderpetdefinitivo.Dao.ConexaoDao;
-import mary_jhenny.tinderpetdefinitivo.bean.ImgPet;
 import mary_jhenny.tinderpetdefinitivo.bean.Pet;
 
 public class Foto extends AppCompatActivity {
@@ -27,6 +27,8 @@ public class Foto extends AppCompatActivity {
     private ArrayList<Pet> listaPets = new ArrayList<>();
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,16 +36,14 @@ public class Foto extends AppCompatActivity {
         btnFinalizar = findViewById(R.id.btnFinalizar);
         btnFoto = findViewById(R.id.btnFoto);
         imgteste = findViewById(R.id.imgteste);
-        btnFinalizar.setOnClickListener(new AcessarFeed());
         btnFoto.setOnClickListener(new EscutadorFoto());
+        btnFinalizar.setOnClickListener(new AcessarFeed());
 
     }
     private class AcessarFeed implements View.OnClickListener{
         @Override
         public void onClick(View view) {
-            ConexaoDao cdao = new ConexaoDao(Foto.this);
             Intent i = getIntent();
-            String email =i.getStringExtra("email");
             String nome= i.getStringExtra("nome");
             String raca= i.getStringExtra("raca");
             String especie = i.getStringExtra("especie");
@@ -54,6 +54,8 @@ public class Foto extends AppCompatActivity {
             String descricao= i.getStringExtra("descricao");
             String pedigree= i.getStringExtra("pedigree");
             String sexo= i.getStringExtra("sexo");
+            String email =i.getStringExtra("email");
+            ConexaoDao cdao = new ConexaoDao(Foto.this);
             Pet p = new Pet(nome,especie,raca,sexo,pedigree,nasc,porte,estado,cidade,descricao,uri_foto,email);
             cdao.inserirPet(p);
             Intent i_feed = new Intent(getApplicationContext(), Feed.class);
@@ -87,7 +89,7 @@ public class Foto extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK && requestCode == 1000) {
             ConexaoDao cdao = new ConexaoDao(Foto.this);
-             uri_foto= data.getData().toString();
+            uri_foto= data.getData().toString();
             imgteste.setImageURI(data.getData());
 
 

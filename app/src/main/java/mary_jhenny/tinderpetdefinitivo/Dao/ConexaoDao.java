@@ -324,7 +324,7 @@ public class ConexaoDao {
         return telTutor;
     }
 
-    //imgpet
+    /*imgpet
     public long inserirImg_pet(ImgPet imgPet){
         ContentValues valores;
         valores = new ContentValues();
@@ -380,6 +380,7 @@ public class ConexaoDao {
     public SQLiteDatabase getConnection() {
         return db;
     }
+    */
 
 
 }

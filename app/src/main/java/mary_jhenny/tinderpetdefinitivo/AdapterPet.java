@@ -7,14 +7,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
-import android.widget.ListView;
+
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 
 import java.util.ArrayList;
 
 import mary_jhenny.tinderpetdefinitivo.bean.Pet;
+import mary_jhenny.tinderpetdefinitivo.Foto;
 
 public class AdapterPet extends ArrayAdapter<Pet> {
 
@@ -43,7 +43,8 @@ public class AdapterPet extends ArrayAdapter<Pet> {
         lblIdade.setText(pets.get(position).getNascimento());
         lblCidade.setText(pets.get(position).getCidade());
         lblSexo.setText(pets.get(position).getSexo());
-        lblFoto.setImageURI(Uri.parse(pets.get(position).getFoto()));
+
+        //lblFoto.setImageURI(Uri.parse(pets.get(position).getFoto()));
         return itemView;
     }
 

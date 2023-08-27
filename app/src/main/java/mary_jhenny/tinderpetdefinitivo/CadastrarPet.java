@@ -52,6 +52,8 @@ public class CadastrarPet extends AppCompatActivity {
      private class Escutador_CadastrarP implements View.OnClickListener{
         @Override
         public void onClick(View view) {
+            Intent i_tutor = getIntent();
+            String email =i_tutor.getStringExtra("email");
             String nome = txtNomeP.getText().toString();
             String raca = txtRaca.getText().toString();
             String especie = txtEspecie.getText().toString();
@@ -62,8 +64,7 @@ public class CadastrarPet extends AppCompatActivity {
             String descricao = txtDesc.getText().toString();
             String pedigree = txtPedigree.getText().toString();
             String sexo = txtSexo.getText().toString();
-
-            Intent i = new Intent(getApplicationContext(),Foto.class);
+            Intent i = new Intent(getApplicationContext(), Foto.class);
             i.putExtra("nome",nome);
             i.putExtra("raca",raca);
             i.putExtra("especie",especie);
@@ -74,8 +75,8 @@ public class CadastrarPet extends AppCompatActivity {
             i.putExtra("descricao",descricao);
             i.putExtra("pedigree",pedigree);
             i.putExtra("sexo",sexo);
-            Intent i_foto = new Intent(getApplicationContext(), Foto.class);
-            startActivity(i_foto);
+            i.putExtra("email",email);
+            startActivity(i);
             finish();
 
 
