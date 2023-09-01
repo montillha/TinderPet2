@@ -42,7 +42,7 @@ public class AdapterPet extends ArrayAdapter<Pet> {
         lblCidade.setText(pets.get(position).getCidade());
         lblSexo.setText(pets.get(position).getSexo());
 
-        //lblFoto.setImageURI(Uri.parse(pets.get(position).getFoto()));
+        lblFoto.setImageURI(Uri.parse(pets.get(position).getFoto()));
         return itemView;
     }
 

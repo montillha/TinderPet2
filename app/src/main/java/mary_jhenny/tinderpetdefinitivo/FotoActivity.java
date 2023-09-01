@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
@@ -37,6 +38,9 @@ public class FotoActivity extends AppCompatActivity {
     private Button btnFoto;
     private ImageView imgteste;
     private String uri_foto;
+
+
+
     private ArrayList<Pet> listaPets = new ArrayList<>();
 
 
@@ -45,7 +49,12 @@ public class FotoActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+<<<<<<< HEAD:app/src/main/java/mary_jhenny/tinderpetdefinitivo/FotoActivity.java
         setContentView(R.layout.activity_foto);
+=======
+        setContentView(R.layout.activity_foto_teste);
+
+>>>>>>> 5a7445315760a7f811541e7ebf9310bab16a52df:app/src/main/java/mary_jhenny/tinderpetdefinitivo/Foto.java
         btnFinalizar = findViewById(R.id.btnFinalizar);
         btnFoto = findViewById(R.id.btnFoto);
         imgteste = findViewById(R.id.imgteste);
@@ -78,6 +87,8 @@ public class FotoActivity extends AppCompatActivity {
 
         }
     }
+
+
     //link do código de refêrencia para manipular o cadastro de fotos:https://www.youtube.com/watch?v=S4GFNZoxag8
     private class EscutadorFoto implements View.OnClickListener{
 
