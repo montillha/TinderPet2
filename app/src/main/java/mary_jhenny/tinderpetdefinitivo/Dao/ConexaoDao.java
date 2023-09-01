@@ -171,6 +171,32 @@ public class ConexaoDao {
         return listaPets;
 
     }
+
+    public ArrayList<Pet> listarPetsTutor(String email){
+        Cursor cursor;
+        cursor = db.rawQuery("SELECT * FROM pet WHERE id="+email,null);
+        ArrayList<Pet> listaPetsTutor = new ArrayList<>();
+        while (cursor.moveToNext()) {
+            int id = Integer.parseInt(cursor.getString(COLUNA_ID));
+            String nome= cursor.getString(COLUNA_NOMEP);
+            String especie= cursor.getString(COLUNA_ESPECIE);
+            String raca= cursor.getString(COLUNA_RACA);
+            String sexo= cursor.getString(COLUNA_SEXO);
+            String pedigree= cursor.getString(COLUNA_PEDIGREE);
+            String tamanho= cursor.getString(COLUNA_TAMANHO);
+            String nascimento= cursor.getString(COLUNA_NASCIMENTO);
+            String estado= cursor.getString(COLUNA_ESTADO);
+            String cidade= cursor.getString(COLUNA_CIDADE);
+            String descricao= cursor.getString(COLUNA_DESCRICAO);
+            String foto= cursor.getString(COLUNA_FOTO);
+            String emailTutor= cursor.getString(COLUNA_EMAILTUTOR);
+            Pet pet= new Pet(id,nome,especie,raca,sexo,pedigree,nascimento,tamanho,estado,cidade,descricao,foto,emailTutor);
+            listaPetsTutor.add(pet);
+        }
+
+        return listaPetsTutor;
+
+    }
     public Pet listarPet(int i){
         Cursor cursor;
         Pet p = new Pet();

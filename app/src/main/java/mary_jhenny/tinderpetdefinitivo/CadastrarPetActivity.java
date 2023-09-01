@@ -1,6 +1,5 @@
 package mary_jhenny.tinderpetdefinitivo;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -8,12 +7,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import mary_jhenny.tinderpetdefinitivo.Dao.ConexaoDao;
-import mary_jhenny.tinderpetdefinitivo.bean.Pet;
-
-public class CadastrarPet extends AppCompatActivity {
+public class CadastrarPetActivity extends AppCompatActivity {
 
 
     private TextView txtNomeP;
@@ -35,7 +30,7 @@ public class CadastrarPet extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cadastrar_pet_teste);
+        setContentView(R.layout.activity_cadastrar_pet);
         txtNomeP = findViewById(R.id.txtNomeP);
         txtRaca= findViewById(R.id.txtRaca);
         txtEspecie= findViewById(R.id.txtEspecie);
@@ -64,7 +59,7 @@ public class CadastrarPet extends AppCompatActivity {
             String descricao = txtDesc.getText().toString();
             String pedigree = txtPedigree.getText().toString();
             String sexo = txtSexo.getText().toString();
-            Intent i = new Intent(getApplicationContext(), Foto.class);
+            Intent i = new Intent(getApplicationContext(), FotoActivity.class);
             i.putExtra("nome",nome);
             i.putExtra("raca",raca);
             i.putExtra("especie",especie);

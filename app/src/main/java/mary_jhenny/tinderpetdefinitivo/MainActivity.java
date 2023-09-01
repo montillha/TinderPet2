@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.Toast;
 
 import mary_jhenny.tinderpetdefinitivo.Dao.ConexaoDao;
 
@@ -34,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
             System.out.println("MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM");
 
             System.out.println(cdao.listarPets());
-            Intent i = new Intent(getApplicationContext(), CadastrarTutor.class);
+            Intent i = new Intent(getApplicationContext(), CadastrarTutorActivity.class);
             startActivity(i);
         }
     }
@@ -43,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onClick(View view) {
 
-            Intent i = new Intent(getApplicationContext(), Logar.class);
+            Intent i = new Intent(getApplicationContext(), LogarActivity.class);
            startActivity(i);
         }
     }

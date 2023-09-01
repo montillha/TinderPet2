@@ -11,14 +11,14 @@ import android.widget.Toast;
 
 import mary_jhenny.tinderpetdefinitivo.Dao.ConexaoDao;
 
-public class Logar extends AppCompatActivity {
+public class LogarActivity extends AppCompatActivity {
     private Button btnAcessar;
     private TextView txtName;
     private TextView txtSenhaLogin;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_logar_teste);
+        setContentView(R.layout.activity_logar);
         btnAcessar= findViewById(R.id.btnAcessar);
         txtName= findViewById(R.id.txtName);
         txtSenhaLogin= findViewById(R.id.txtSenhaLogin);
@@ -29,16 +29,16 @@ public class Logar extends AppCompatActivity {
     class AcessarFeed implements View.OnClickListener{
         @Override
         public void onClick(View view) {
-            ConexaoDao cdao = new ConexaoDao(Logar.this);
+            ConexaoDao cdao = new ConexaoDao(LogarActivity.this);
             String email = txtName.getText().toString();
             String senha = txtSenhaLogin.getText().toString();
             boolean achou = cdao.verificaTutor(email,senha);
             if (achou){
-                Intent i = new Intent( getApplicationContext(), Feed.class );
+                Intent i = new Intent( getApplicationContext(), EscolherPerfilActivity.class );
                 startActivity(i);
 
             }else{
-                Toast.makeText(Logar.this, "Usuário não encontrado", Toast.LENGTH_SHORT).show();
+                Toast.makeText(LogarActivity.this, "Usuário não encontrado", Toast.LENGTH_SHORT).show();
             }
 
         }

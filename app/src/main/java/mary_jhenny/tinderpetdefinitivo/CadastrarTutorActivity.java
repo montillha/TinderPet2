@@ -13,7 +13,7 @@ import mary_jhenny.tinderpetdefinitivo.Dao.ConexaoDao;
 import mary_jhenny.tinderpetdefinitivo.bean.TelTutor;
 import mary_jhenny.tinderpetdefinitivo.bean.Tutor;
 
-public class CadastrarTutor extends AppCompatActivity {
+public class CadastrarTutorActivity extends AppCompatActivity {
 
     private TextView txtNome;
     private TextView txtTelefone;
@@ -23,7 +23,7 @@ public class CadastrarTutor extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cadastrar_tutor_teste);
+        setContentView(R.layout.activity_cadastrar_tutor);
         txtNome = findViewById(R.id.txtNome);
         txtTelefone = findViewById(R.id.txtTelefone);
         txtEmail= findViewById(R.id.txtEmail);
@@ -35,7 +35,7 @@ public class CadastrarTutor extends AppCompatActivity {
     class Escutador_CadastrarT implements View.OnClickListener{
         @Override
         public void onClick(View view) {
-            ConexaoDao cdao = new ConexaoDao(CadastrarTutor.this);
+            ConexaoDao cdao = new ConexaoDao(CadastrarTutorActivity.this);
             String nome = txtNome.getText().toString();
             String email = txtEmail.getText().toString();
             String telefone  = txtTelefone.getText().toString();
@@ -45,12 +45,12 @@ public class CadastrarTutor extends AppCompatActivity {
             long resultado= cdao.inserirTutor(t);
 
             if (resultado ==-1){
-                Toast.makeText(CadastrarTutor.this, "Erro ao inserir tutor", Toast.LENGTH_SHORT).show();
+                Toast.makeText(CadastrarTutorActivity.this, "Erro ao inserir tutor", Toast.LENGTH_SHORT).show();
 
             }else{
-                Toast.makeText(CadastrarTutor.this, "Tutor inserido com sucesso", Toast.LENGTH_SHORT).show();
+                Toast.makeText(CadastrarTutorActivity.this, "Tutor inserido com sucesso", Toast.LENGTH_SHORT).show();
                 cdao.inserirTel_tutor(tel);
-                Intent i = new Intent(getApplicationContext(), CadastrarPet.class);
+                Intent i = new Intent(getApplicationContext(), CadastrarPetActivity.class);
                 i.putExtra("email", email);
                 startActivity(i);
 
