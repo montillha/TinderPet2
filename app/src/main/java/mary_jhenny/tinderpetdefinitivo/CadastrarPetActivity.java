@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import mary_jhenny.tinderpetdefinitivo.bean.Pet;
+
 public class CadastrarPetActivity extends AppCompatActivity {
 
 
@@ -64,18 +66,9 @@ public class CadastrarPetActivity extends AppCompatActivity {
 
 
             Intent i = new Intent(getApplicationContext(), FotoActivity.class);
-            i.putExtra("nome",nome);
-            i.putExtra("raca",raca);
-            i.putExtra("especie",especie);
-            i.putExtra("porte",porte);
-            i.putExtra("cidade",cidade);
-            i.putExtra("estado",estado);
-            i.putExtra("nasc",nasc);
-            i.putExtra("descricao",descricao);
-            i.putExtra("pedigree",pedigree);
-            i.putExtra("sexo",sexo);
-            i.putExtra("email",email);
+            Pet pet = new Pet(nome, especie, raca, sexo, pedigree, nasc, porte, estado, cidade, descricao, null, email);
             i.putExtra("activity",activity);
+            i.putExtra("pet",pet);
             startActivity(i);
             finish();
 
