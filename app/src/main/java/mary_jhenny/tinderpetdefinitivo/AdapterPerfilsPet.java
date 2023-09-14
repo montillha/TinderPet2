@@ -19,14 +19,14 @@ public class AdapterPerfilsPet extends ArrayAdapter<Pet> {
     private ArrayList<Pet> perfilsPet;
 
 
-    public AdapterPerfilsPet(@NonNull Context context, ArrayList<Pet> perfilsPet) {
+    public AdapterPerfilsPet(Context context, ArrayList<Pet> perfilsPet) {
         super(context, R.layout.item_perfils_pet, perfilsPet);
         this.context = context;
         this.perfilsPet = perfilsPet;
 
     }
 
-    @NonNull
+
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater li = LayoutInflater.from(parent.getContext());

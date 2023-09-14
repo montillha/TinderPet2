@@ -1,7 +1,9 @@
 package mary_jhenny.tinderpetdefinitivo.bean;
 
 
-public class Pet {
+import java.io.Serializable;
+
+public class Pet implements Serializable {
     private static  int sequence =0;
     private int id;
     private String nome;

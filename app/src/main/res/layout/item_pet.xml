@@ -2,18 +2,19 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/btn"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <ImageView
         android:id="@+id/lblFoto"
-        android:layout_width="225dp"
-        android:layout_height="197dp"
+        android:layout_width="355dp"
+        android:layout_height="193dp"
         android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:srcCompat="@tools:sample/avatars" />
+        tools:srcCompat="@drawable/dog" />
 
     <TextView
         android:id="@+id/lblNome"
@@ -80,4 +81,28 @@
         app:layout_constraintBaseline_toBaselineOf="@+id/lblIdade"
         app:layout_constraintEnd_toStartOf="@+id/lblSexo"
         app:layout_constraintStart_toEndOf="@+id/lblIdade" />
+
+    <Button
+        android:id="@+id/btnCurtir"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#E91E63"
+        android:text="Curtir"
+        app:layout_constraintEnd_toStartOf="@+id/btnMatch"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblRaca" />
+
+    <Button
+        android:id="@+id/btnMatch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#3F51B5"
+        android:text="Match"
+        app:layout_constraintBottom_toBottomOf="@+id/btnCurtir"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnCurtir"
+        app:layout_constraintTop_toTopOf="@+id/btnCurtir" />
 </androidx.constraintlayout.widget.ConstraintLayout>

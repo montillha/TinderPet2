@@ -7,7 +7,8 @@ import android.database.sqlite.SQLiteDatabase;
 
 import java.util.ArrayList;
 
-import mary_jhenny.tinderpetdefinitivo.bean.ImgPet;
+import mary_jhenny.tinderpetdefinitivo.bean.Curtida;
+import mary_jhenny.tinderpetdefinitivo.bean.Dar_match;
 import mary_jhenny.tinderpetdefinitivo.bean.Pet;
 import mary_jhenny.tinderpetdefinitivo.bean.TelTutor;
 import mary_jhenny.tinderpetdefinitivo.bean.Tutor;
@@ -37,6 +38,15 @@ public class ConexaoDao {
     private final int COLUNA_TELEFONE=1;
      //imgPet
     private final int COLUNA_IMG = 1;
+
+    //curtida
+    private final int COLUNA_ID_CURTIU = 0;
+    private  final  int COLUNA_ID_RECEBEU = 1;
+
+    //MATCH
+    private final int COLUNA_ID_DEU_MATCH = 0;
+    private  final  int COLUNA_ID_RECEBEU_MATCH = 1;
+
 
     private SQLiteDatabase db;
 
@@ -174,7 +184,8 @@ public class ConexaoDao {
 
     public ArrayList<Pet> listarPetsTutor(String email){
         Cursor cursor;
-        cursor = db.rawQuery("SELECT * FROM pet WHERE id="+email,null);
+        cursor = db.rawQuery("SELECT * FROM pet WHERE emailTutor=?",new String[]{email});
+
         ArrayList<Pet> listaPetsTutor = new ArrayList<>();
         while (cursor.moveToNext()) {
             int id = Integer.parseInt(cursor.getString(COLUNA_ID));
@@ -349,6 +360,101 @@ public class ConexaoDao {
         }
         return telTutor;
     }
+
+    //dar_match
+    public long inserirMatch(Dar_match dar_match){
+        ContentValues valores;
+        valores = new ContentValues();
+        valores.put("id_deuMatch", dar_match.getId_deuMatch());
+        valores.put("id_recebeu", dar_match.getId_recebeu());
+        long resultado = db.insert("dat_match", null, valores);
+        return resultado;
+    }
+    public int deletarMatch(Dar_match dar_match){
+        String where = "id_deuMatch =" + dar_match.getId_deuMatch()+"id_recebeu="+dar_match.getId_recebeu();
+        return db.delete("dar_match", where,null);
+    }
+
+    public ArrayList<Dar_match> listarMatchs(){
+        Cursor cursor;
+        cursor = db.rawQuery("SELECT * FROM dar_match", null);
+
+        ArrayList<Dar_match> listaMatchs = new ArrayList<>();
+
+        while (cursor.moveToNext()) {
+            int id_deuMatch = Integer.parseInt(cursor.getString(COLUNA_ID_DEU_MATCH));
+            int id_recebeu= Integer.parseInt(cursor.getString(COLUNA_ID_RECEBEU_MATCH));
+            Dar_match dar_match = new Dar_match(id_deuMatch,id_recebeu);
+            listaMatchs.add(dar_match);
+
+        }
+
+        return listaMatchs;
+    }
+    public ArrayList<Dar_match> listarMatchsRecebidos(int id){
+        Cursor cursor;
+        cursor = db.rawQuery("SELECT * FROM dar_match WHERE id_recebeu="+id+"OR id_deuMatch="+id, null);
+        ArrayList<Dar_match> listaMatchs = new ArrayList<>();
+
+        while (cursor.moveToNext()) {
+            int id_deuMatch = Integer.parseInt(cursor.getString(COLUNA_ID_DEU_MATCH));
+            int id_recebeu= Integer.parseInt(cursor.getString(COLUNA_ID_RECEBEU_MATCH));
+            Dar_match dar_match = new Dar_match(id_deuMatch,id_recebeu);
+            listaMatchs.add(dar_match);
+        }
+        return listaMatchs;
+    }
+
+    //cutida
+
+    public long inserirCurtida( Curtida curtida){
+        ContentValues valores;
+        valores = new ContentValues();
+        valores.put("id_curtiu", curtida.getId_curtiu());
+        valores.put("id_recebeu", curtida.getId_recebeu());
+        long resultado = db.insert("curtida", null, valores);
+        return resultado;
+    }
+    public int deletarCurtida(Curtida curtida){
+        String where = "id_curtiu =" + curtida.getId_curtiu()+"id_recebeu="+curtida.getId_recebeu();
+        return db.delete("dar_match", where,null);
+    }
+
+    public ArrayList<Curtida> listarCurtidas(){
+        Cursor cursor;
+        cursor = db.rawQuery("SELECT * FROM curtidas", null);
+
+        ArrayList<Curtida> listaCurtidas = new ArrayList<>();
+
+        while (cursor.moveToNext()) {
+            int id_curtiu = Integer.parseInt(cursor.getString(COLUNA_ID_CURTIU));
+            int id_recebeu= Integer.parseInt(cursor.getString(COLUNA_ID_RECEBEU));
+            Curtida curtida = new Curtida(id_curtiu,id_recebeu);
+            listaCurtidas.add(curtida);
+
+        }
+
+        return listaCurtidas;
+    }
+    public ArrayList<Curtida> listarCurtidasRecebidas(int id){
+        Cursor cursor;
+        cursor = db.rawQuery("SELECT * FROM curtidas WHERE id_recebeu="+id, null);
+        ArrayList<Curtida> listaCurtidasRecebeu = new ArrayList<>();
+        while (cursor.moveToNext()) {
+            int id_curtiu = Integer.parseInt(cursor.getString(COLUNA_ID_CURTIU));
+            int id_recebeu= Integer.parseInt(cursor.getString(COLUNA_ID_RECEBEU));
+            Curtida curtida = new Curtida(id_curtiu,id_recebeu);
+            listaCurtidasRecebeu.add(curtida);
+
+        }
+
+        return listaCurtidasRecebeu;
+    }
+
+
+
+
+
 
     /*imgpet
     public long inserirImg_pet(ImgPet imgPet){

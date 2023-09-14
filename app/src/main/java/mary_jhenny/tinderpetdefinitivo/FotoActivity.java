@@ -38,23 +38,12 @@ public class FotoActivity extends AppCompatActivity {
     private Button btnFoto;
     private ImageView imgteste;
     private String uri_foto;
-
-
-
     private ArrayList<Pet> listaPets = new ArrayList<>();
-
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-<<<<<<< HEAD:app/src/main/java/mary_jhenny/tinderpetdefinitivo/FotoActivity.java
         setContentView(R.layout.activity_foto);
-=======
-        setContentView(R.layout.activity_foto_teste);
-
->>>>>>> 5a7445315760a7f811541e7ebf9310bab16a52df:app/src/main/java/mary_jhenny/tinderpetdefinitivo/Foto.java
         btnFinalizar = findViewById(R.id.btnFinalizar);
         btnFoto = findViewById(R.id.btnFoto);
         imgteste = findViewById(R.id.imgteste);
@@ -65,6 +54,9 @@ public class FotoActivity extends AppCompatActivity {
     private class AcessarFeed implements View.OnClickListener{
         @Override
         public void onClick(View view) {
+            Intent i_activity = getIntent();
+            String activity = i_activity.getStringExtra("activity");
+            System.out.println(activity+"MMMMMMMMMMM");
             Intent i = getIntent();
             String nome= i.getStringExtra("nome");
             String raca= i.getStringExtra("raca");
@@ -82,7 +74,19 @@ public class FotoActivity extends AppCompatActivity {
             cdao.inserirPet(p);
             Intent i_feed = new Intent(getApplicationContext(), FeedActivity.class);
             startActivity(i_feed);
-            finish();
+
+            /*if(activity!=null){
+                Intent i_escolherPerfil= new Intent(getApplicationContext(),EscolherPerfilActivity.class);
+                i_escolherPerfil.putExtra("activity_name", this.getClass().getName());
+                i_activity.putExtra("pet",p);
+                startActivity(i_escolherPerfil);
+                //setResult(RESULT_OK,i_activity);
+            }else{
+                Intent i_feed = new Intent(getApplicationContext(), FeedActivity.class);
+                startActivity(i_feed);
+
+            }
+            finish();*/
 
 
         }

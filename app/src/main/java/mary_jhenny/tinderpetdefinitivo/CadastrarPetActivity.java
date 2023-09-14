@@ -59,6 +59,10 @@ public class CadastrarPetActivity extends AppCompatActivity {
             String descricao = txtDesc.getText().toString();
             String pedigree = txtPedigree.getText().toString();
             String sexo = txtSexo.getText().toString();
+
+            String activity = getIntent().getStringExtra("activity_name");
+
+
             Intent i = new Intent(getApplicationContext(), FotoActivity.class);
             i.putExtra("nome",nome);
             i.putExtra("raca",raca);
@@ -71,6 +75,7 @@ public class CadastrarPetActivity extends AppCompatActivity {
             i.putExtra("pedigree",pedigree);
             i.putExtra("sexo",sexo);
             i.putExtra("email",email);
+            i.putExtra("activity",activity);
             startActivity(i);
             finish();
 

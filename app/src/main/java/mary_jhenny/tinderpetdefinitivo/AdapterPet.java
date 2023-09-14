@@ -1,6 +1,7 @@
 package mary_jhenny.tinderpetdefinitivo;
 
 import android.content.Context;
+import android.net.Uri;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,8 +42,7 @@ public class AdapterPet extends ArrayAdapter<Pet> {
         lblIdade.setText(pets.get(position).getNascimento());
         lblCidade.setText(pets.get(position).getCidade());
         lblSexo.setText(pets.get(position).getSexo());
-
-        lblFoto.setImageURI(Uri.parse(pets.get(position).getFoto()));
+        //lblFoto.setImageURI(Uri.parse(pets.get(position).getFoto()));
         return itemView;
     }
 

@@ -30,9 +30,6 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             ConexaoDao cdao = new ConexaoDao(MainActivity.this);
-            System.out.println("MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM");
-
-            System.out.println(cdao.listarPets());
             Intent i = new Intent(getApplicationContext(), CadastrarTutorActivity.class);
             startActivity(i);
         }
@@ -41,7 +38,6 @@ public class MainActivity extends AppCompatActivity {
     class Login implements View.OnClickListener {
         @Override
         public void onClick(View view) {
-
             Intent i = new Intent(getApplicationContext(), LogarActivity.class);
            startActivity(i);
         }
