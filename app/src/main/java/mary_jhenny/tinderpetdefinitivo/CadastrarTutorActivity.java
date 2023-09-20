@@ -18,7 +18,7 @@ public class CadastrarTutorActivity extends AppCompatActivity {
     private TextView txtNome;
     private TextView txtTelefone;
     private TextView txtEmail;
-    private TextView txtSenha;
+    private TextView txtSenhaT;
     private Button btnCadastrarT;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +27,7 @@ public class CadastrarTutorActivity extends AppCompatActivity {
         txtNome = findViewById(R.id.txtNome);
         txtTelefone = findViewById(R.id.txtTelefone);
         txtEmail= findViewById(R.id.txtEmail);
-        txtSenha = findViewById(R.id.txtSenha);
+        txtSenhaT = findViewById(R.id.txtSenhaT);
         btnCadastrarT = findViewById(R.id.btnContinuar);
         btnCadastrarT.setOnClickListener(new Escutador_CadastrarT());
 
@@ -39,7 +39,7 @@ public class CadastrarTutorActivity extends AppCompatActivity {
             String nome = txtNome.getText().toString();
             String email = txtEmail.getText().toString();
             String telefone  = txtTelefone.getText().toString();
-            String senha  = txtSenha.getText().toString();
+            String senha  = txtSenhaT.getText().toString();
             Tutor t  = new Tutor(email,nome,senha);
             TelTutor tel = new TelTutor(email,telefone);
             long resultado= cdao.inserirTutor(t);

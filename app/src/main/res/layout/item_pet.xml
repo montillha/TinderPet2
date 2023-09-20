@@ -2,16 +2,43 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/btn"
     android:layout_width="match_parent"
+    android:background="@drawable/background"
     android:layout_height="wrap_content">
+    <View
+        android:id="@+id/view"
+        android:layout_width="435dp"
+        android:layout_height="402dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="174dp"
+        android:background="@drawable/background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.015" />
+
+    <View
+        android:id="@+id/view2"
+        android:layout_width="437dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="-10dp"
+        android:background="#FFFFFF"
+        app:layout_constraintBottom_toTopOf="@+id/btnCurtirP"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/lblRaca"
+        app:layout_constraintVertical_bias="1.0" />
 
     <ImageView
         android:id="@+id/lblFoto"
-        android:layout_width="355dp"
-        android:layout_height="193dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="309dp"
+        android:layout_height="209dp"
+        android:layout_marginTop="40dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.627"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:srcCompat="@drawable/dog" />
@@ -20,41 +47,45 @@
         android:id="@+id/lblNome"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="4dp"
         android:text="Cachorrinho"
+        android:textColor="#FFFFFF"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toEndOf="@+id/imageView2"
         app:layout_constraintTop_toBottomOf="@+id/lblFoto" />
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="28dp"
-        android:layout_height="26dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lblFoto"
-        app:srcCompat="@drawable/pata" />
+        app:srcCompat="@drawable/pata_pet"
+        android:layout_width="28dp"
+        android:layout_height="26dp"
+        tools:layout_editor_absoluteX="57dp"
+        tools:layout_editor_absoluteY="419dp" />
 
     <TextView
         android:id="@+id/lblSexo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
+        android:layout_marginTop="24dp"
         android:text="0"
         android:textSize="16sp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/lblCidade"
+        app:layout_constraintBottom_toTopOf="@+id/btnMatch"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/lblCidade" />
+        app:layout_constraintStart_toEndOf="@+id/lblCidade"
+        app:layout_constraintTop_toBottomOf="@+id/lblNome"
+        app:layout_constraintVertical_bias="0.1" />
 
     <TextView
         android:id="@+id/lblIdade"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
+        android:layout_marginStart="40dp"
         android:text="S"
+        android:textColor="#000000"
         android:textSize="16sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/lblRaca"
         app:layout_constraintStart_toEndOf="@+id/lblRaca" />
@@ -63,9 +94,10 @@
         android:id="@+id/lblRaca"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="32dp"
         android:text="Raça"
+        android:textColor="#000000"
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
@@ -74,35 +106,55 @@
         android:id="@+id/lblCidade"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
         android:text="Cidade"
+        android:textColor="#000000"
+        android:textColorHint="#FFFFFF"
         android:textSize="16sp"
         app:layout_constraintBaseline_toBaselineOf="@+id/lblIdade"
         app:layout_constraintEnd_toStartOf="@+id/lblSexo"
         app:layout_constraintStart_toEndOf="@+id/lblIdade" />
 
     <Button
-        android:id="@+id/btnCurtir"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:backgroundTint="#E91E63"
-        android:text="Curtir"
+        android:id="@+id/btnCurtirP"
+        android:layout_width="99dp"
+        android:layout_height="69dp"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="#00E91E63"
+
+        android:drawableRight="@drawable/polegar_feed"
         app:layout_constraintEnd_toStartOf="@+id/btnMatch"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lblRaca" />
 
+
+    <Button
+        android:id="@+id/btnTel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="150dp"
+        android:backgroundTint="#003F51B5"
+        android:drawableRight="@drawable/coracao_feed_icon"
+        app:layout_constraintBottom_toBottomOf="@+id/btnCurtirP"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btnCurtirP"
+        app:layout_constraintTop_toTopOf="@+id/btnCurtirP"
+        app:layout_constraintVertical_bias="0.0" />
+
     <Button
         android:id="@+id/btnMatch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:backgroundTint="#3F51B5"
-        android:text="Match"
-        app:layout_constraintBottom_toBottomOf="@+id/btnCurtir"
+        android:layout_marginStart="100dp"
+        android:backgroundTint="#003F51B5"
+        android:drawableRight="@drawable/telefone_icon"
+        app:layout_constraintBottom_toBottomOf="@+id/btnCurtirP"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btnCurtir"
-        app:layout_constraintTop_toTopOf="@+id/btnCurtir" />
+        app:layout_constraintStart_toEndOf="@+id/btnCurtirP"
+        app:layout_constraintTop_toTopOf="@+id/btnCurtirP"
+        app:layout_constraintVertical_bias="0.0" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

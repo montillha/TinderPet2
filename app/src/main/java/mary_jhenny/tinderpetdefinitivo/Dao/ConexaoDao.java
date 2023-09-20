@@ -391,16 +391,29 @@ public class ConexaoDao {
 
         return listaMatchs;
     }
-    public ArrayList<Dar_match> listarMatchsRecebidos(int id){
+    public ArrayList<Dar_match> listarMatchsRecebidos(Dar_match dar_match){
         Cursor cursor;
-        cursor = db.rawQuery("SELECT * FROM dar_match WHERE id_recebeu="+id+"OR id_deuMatch="+id, null);
+        cursor = db.rawQuery("SELECT * FROM dar_match WHERE id_recebeu="+dar_match.getId_recebeu()+"AND id_deuMatch="+dar_match.getId_deuMatch(), null);
         ArrayList<Dar_match> listaMatchs = new ArrayList<>();
 
         while (cursor.moveToNext()) {
             int id_deuMatch = Integer.parseInt(cursor.getString(COLUNA_ID_DEU_MATCH));
             int id_recebeu= Integer.parseInt(cursor.getString(COLUNA_ID_RECEBEU_MATCH));
-            Dar_match dar_match = new Dar_match(id_deuMatch,id_recebeu);
-            listaMatchs.add(dar_match);
+            Dar_match match = new Dar_match(id_deuMatch,id_recebeu);
+            listaMatchs.add(match);
+        }
+        return listaMatchs;
+    }
+
+    public ArrayList<Dar_match> listarMatchsDados(Dar_match dar_match){
+        Cursor cursor;
+        cursor = db.rawQuery("SELECT * FROM dar_match WHERE id_recebeu="+dar_match.getId_recebeu()+"AND id_deuMatch="+dar_match.getId_deuMatch(), null);
+        ArrayList<Dar_match> listaMatchs = new ArrayList<>();
+        while (cursor.moveToNext()) {
+            int id_deuMatch = Integer.parseInt(cursor.getString(COLUNA_ID_DEU_MATCH));
+            int id_recebeu= Integer.parseInt(cursor.getString(COLUNA_ID_RECEBEU_MATCH));
+            Dar_match match = new Dar_match(id_deuMatch,id_recebeu);
+            listaMatchs.add(match);
         }
         return listaMatchs;
     }

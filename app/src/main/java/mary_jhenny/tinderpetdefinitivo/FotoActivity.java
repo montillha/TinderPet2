@@ -4,33 +4,21 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.Manifest;
-import android.content.Context;
 import android.content.Intent;
 
 import android.content.pm.PackageManager;
-import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
-import android.provider.DocumentsContract;
-import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.Locale;
 
 import mary_jhenny.tinderpetdefinitivo.Dao.ConexaoDao;
 import mary_jhenny.tinderpetdefinitivo.bean.Pet;
@@ -67,6 +55,7 @@ public class FotoActivity extends AppCompatActivity {
             ConexaoDao cdao = new ConexaoDao(FotoActivity.this);
             cdao.inserirPet(pet);
             Intent iFeed = new Intent(getApplicationContext(), FeedActivity.class);
+            iFeed.putExtra("pet",pet);
             startActivity(iFeed);
             finish();
         }

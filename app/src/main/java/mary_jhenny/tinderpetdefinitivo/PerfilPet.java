@@ -24,12 +24,10 @@ public class PerfilPet extends AppCompatActivity {
         String nome = pet.getNome();
         String especie = pet.getEspecie();
         Toast.makeText(this, nome +" ..."+especie, Toast.LENGTH_SHORT).show();
-
         //teste notificações:
-
-
-        Intent i_noti = new Intent(getApplicationContext(),NotificacoesActivity.class);
-        startActivity(i_noti);
+        Intent iNoti = new Intent(getApplicationContext(),NotificacoesActivity.class);
+        iNoti.putExtra("id_pet",id_pet);
+        startActivity(iNoti);
 
 
     }
