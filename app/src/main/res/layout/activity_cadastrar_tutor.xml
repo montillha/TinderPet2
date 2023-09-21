@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background" >
+    android:background="@drawable/background"
     tools:context=".CadastrarTutorActivity">
 
     <ImageView
@@ -29,7 +29,7 @@
         app:layout_constraintTop_toBottomOf="@id/imageView2" />
 
     <EditText
-        android:id="@+id/txtEmailLogin"
+        android:id="@+id/txtNome"
         style="@style/Edit_Text"
         android:layout_marginTop="20dp"
         android:drawableRight="@drawable/icon_name"

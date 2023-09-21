@@ -12,17 +12,17 @@ import android.widget.Toast;
 import mary_jhenny.tinderpetdefinitivo.Dao.ConexaoDao;
 
 public class LogarActivity extends AppCompatActivity {
-    private Button btnAcessar;
+    private Button btnAcessarT;
     private TextView txtEmailLogin;
     private TextView txtSenhaLogin;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_logar);
-        btnAcessar= findViewById(R.id.btnAcessar);
+        btnAcessarT= findViewById(R.id.btnAcessarT);
         txtEmailLogin= findViewById(R.id.txtEmailLogin);
         txtSenhaLogin= findViewById(R.id.txtSenhaLogin);
-        btnAcessar.setOnClickListener(new AcessarFeed());
+        btnAcessarT.setOnClickListener(new AcessarFeed());
 
     }
     class AcessarFeed implements View.OnClickListener{

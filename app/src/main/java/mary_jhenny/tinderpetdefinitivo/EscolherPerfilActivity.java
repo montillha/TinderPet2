@@ -46,6 +46,7 @@ public class EscolherPerfilActivity extends AppCompatActivity {
             String email = i_email.getStringExtra("email");
             Intent i = new Intent(getApplicationContext(),CadastrarPetActivity.class);
             i.putExtra("activity_name", this.getClass().getName());
+            i.putExtra("email",email);
             startActivity(i);
             finish();
 
@@ -57,8 +58,11 @@ public class EscolherPerfilActivity extends AppCompatActivity {
            ConexaoDao cdao = new ConexaoDao(EscolherPerfilActivity.this);
            Pet p = perfilPet.get(i);
            int id_pet = p.getId();
-           Intent intent = new Intent(getApplicationContext(), PerfilPet.class);
+           Intent i_email = getIntent();
+           String email = i_email.getStringExtra("email");
+           Intent intent = new Intent(getApplicationContext(), PerfilActivity.class);
            intent.putExtra("id_pet",id_pet);
+           intent.putExtra("email",email);
            startActivity(intent);
            finish();
 

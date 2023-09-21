@@ -136,10 +136,10 @@ public class ConexaoDao {
         String where = "id="+p.getId();
         return db.delete("pet",where,null);
     }
-    public int alterarPet(Pet p){
+    public int alterarPet(Pet p,int id){
         ContentValues valores;
         valores = new ContentValues();
-        String where = "id="+p.getId();
+        String where = "id="+id;
         valores.put("id", p.getId());
         valores.put("nome", p.getNome());
         valores.put("especie", p.getEspecie());
@@ -391,7 +391,7 @@ public class ConexaoDao {
 
         return listaMatchs;
     }
-    public ArrayList<Dar_match> listarMatchsRecebidos(Dar_match dar_match){
+   public ArrayList<Dar_match> listarMatchsRecebidos(Dar_match dar_match){
         Cursor cursor;
         cursor = db.rawQuery("SELECT * FROM dar_match WHERE id_recebeu="+dar_match.getId_recebeu()+"AND id_deuMatch="+dar_match.getId_deuMatch(), null);
         ArrayList<Dar_match> listaMatchs = new ArrayList<>();
@@ -404,7 +404,6 @@ public class ConexaoDao {
         }
         return listaMatchs;
     }
-
     public ArrayList<Dar_match> listarMatchsDados(Dar_match dar_match){
         Cursor cursor;
         cursor = db.rawQuery("SELECT * FROM dar_match WHERE id_recebeu="+dar_match.getId_recebeu()+"AND id_deuMatch="+dar_match.getId_deuMatch(), null);
@@ -418,6 +417,8 @@ public class ConexaoDao {
         return listaMatchs;
     }
 
+
+
     //cutida
 
     public long inserirCurtida( Curtida curtida){
@@ -430,12 +431,12 @@ public class ConexaoDao {
     }
     public int deletarCurtida(Curtida curtida){
         String where = "id_curtiu =" + curtida.getId_curtiu()+"id_recebeu="+curtida.getId_recebeu();
-        return db.delete("dar_match", where,null);
+        return db.delete("curtida", where,null);
     }
 
     public ArrayList<Curtida> listarCurtidas(){
         Cursor cursor;
-        cursor = db.rawQuery("SELECT * FROM curtidas", null);
+        cursor = db.rawQuery("SELECT * FROM curtida", null);
 
         ArrayList<Curtida> listaCurtidas = new ArrayList<>();
 
@@ -451,7 +452,7 @@ public class ConexaoDao {
     }
     public ArrayList<Curtida> listarCurtidasRecebidas(int id){
         Cursor cursor;
-        cursor = db.rawQuery("SELECT * FROM curtidas WHERE id_recebeu="+id, null);
+        cursor = db.rawQuery("SELECT * FROM curtida WHERE id_recebeu="+id, null);
         ArrayList<Curtida> listaCurtidasRecebeu = new ArrayList<>();
         while (cursor.moveToNext()) {
             int id_curtiu = Integer.parseInt(cursor.getString(COLUNA_ID_CURTIU));
@@ -463,9 +464,6 @@ public class ConexaoDao {
 
         return listaCurtidasRecebeu;
     }
-
-
-
 
 
 

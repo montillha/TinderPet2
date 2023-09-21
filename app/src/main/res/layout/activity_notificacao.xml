@@ -5,10 +5,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/background"
-    tools:context=".NotificacoesActivity">
+    tools:context=".NotificacaoActivity">
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/Feed"
+        android:id="@+id/btnF"
         style="@style/Button"
         android:layout_width="75dp"
         android:layout_height="51dp"
@@ -23,7 +23,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/acessar_match"
+        android:id="@+id/btnP"
         style="@style/Button"
         android:layout_width="76dp"
         android:layout_height="54dp"
@@ -37,7 +37,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/Notificacoes"
+        android:id="@+id/btnN"
         style="@style/Button"
         android:layout_width="83dp"
         android:layout_height="51dp"
@@ -80,9 +80,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/aclonica"
-        android:text="Curtidas"
+        android:text="Curtidas e Matchs"
         android:textColor="#673AB7"
-        android:textSize="48sp"
+        android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="@+id/containerComponents2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -111,6 +111,27 @@
         android:textSize="24sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ListView
+        android:id="@+id/listCurtidas"
+        android:layout_width="0dp"
+        android:layout_height="257dp"
+        android:layout_marginTop="35dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/containerComponents2" />
+
+    <ListView
+        android:id="@+id/listMatchs"
+        android:layout_width="0dp"
+        android:layout_height="221dp"
+        android:layout_marginTop="6dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/listCurtidas"
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,6 +7,7 @@
     android:background="@color/dark_blue"
     tools:context=".LogarActivity">
 
+
     <View
         android:id="@+id/containerComponents"
         style="@style/ContainerComponents"
@@ -15,7 +16,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    "/>
+
+        "/>
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
@@ -94,7 +97,7 @@
         app:layout_constraintTop_toTopOf="@+id/txtEmailLogin" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnAcessar"
+        android:id="@+id/btnAcessarT"
         style="@style/Button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -110,5 +113,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/containerComponents"
         app:layout_constraintTop_toTopOf="@+id/txtSenhaLogin" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

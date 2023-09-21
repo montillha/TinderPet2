@@ -25,7 +25,7 @@
         android:layout_height="66dp"
         android:layout_marginTop="-10dp"
         android:background="#FFFFFF"
-        app:layout_constraintBottom_toTopOf="@+id/btnCurtirP"
+        app:layout_constraintBottom_toTopOf="@+id/btnCurtir"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -73,7 +73,7 @@
         android:layout_marginTop="24dp"
         android:text="0"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/btnMatch"
+        app:layout_constraintBottom_toTopOf="@+id/btnTel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/lblCidade"
         app:layout_constraintTop_toBottomOf="@+id/lblNome"
@@ -115,46 +115,46 @@
         app:layout_constraintStart_toEndOf="@+id/lblIdade" />
 
     <Button
-        android:id="@+id/btnCurtirP"
+        android:id="@+id/btnCurtir"
         android:layout_width="99dp"
         android:layout_height="69dp"
         android:layout_marginTop="24dp"
         android:backgroundTint="#00E91E63"
 
         android:drawableRight="@drawable/polegar_feed"
-        app:layout_constraintEnd_toStartOf="@+id/btnMatch"
+        app:layout_constraintEnd_toStartOf="@+id/btnTel"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/lblRaca" />
 
 
     <Button
-        android:id="@+id/btnTel"
+        android:id="@+id/btnMatch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="150dp"
         android:backgroundTint="#003F51B5"
         android:drawableRight="@drawable/coracao_feed_icon"
-        app:layout_constraintBottom_toBottomOf="@+id/btnCurtirP"
+        app:layout_constraintBottom_toBottomOf="@+id/btnCurtir"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btnCurtirP"
-        app:layout_constraintTop_toTopOf="@+id/btnCurtirP"
+        app:layout_constraintStart_toEndOf="@+id/btnCurtir"
+        app:layout_constraintTop_toTopOf="@+id/btnCurtir"
         app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/btnMatch"
+        android:id="@+id/btnTel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
         android:backgroundTint="#003F51B5"
         android:drawableRight="@drawable/telefone_icon"
-        app:layout_constraintBottom_toBottomOf="@+id/btnCurtirP"
+        app:layout_constraintBottom_toBottomOf="@+id/btnCurtir"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btnCurtirP"
-        app:layout_constraintTop_toTopOf="@+id/btnCurtirP"
+        app:layout_constraintStart_toEndOf="@+id/btnCurtir"
+        app:layout_constraintTop_toTopOf="@+id/btnCurtir"
         app:layout_constraintVertical_bias="0.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

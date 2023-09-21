@@ -32,8 +32,6 @@
         android:layout_marginBottom="20dp"
         android:text="Pet"
         android:textColor="#FF9800"
-
-
         android:textSize="34sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/containerComponents"
@@ -47,7 +45,7 @@
         style="@style/ContainerComponents"
         android:layout_marginEnd="4dp"
         android:layout_marginBottom="32dp"
-        app:layout_constraintBottom_toTopOf="@+id/btnAcessar"
+        app:layout_constraintBottom_toTopOf="@+id/btnAcessarT"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintEnd_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
@@ -174,8 +172,7 @@
 
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btnAcessar"
-
+        android:id="@+id/btnAcessarT"
         style="@style/Button"
         android:layout_width="218dp"
         android:layout_height="64dp"
@@ -202,5 +199,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/bichos_pet" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

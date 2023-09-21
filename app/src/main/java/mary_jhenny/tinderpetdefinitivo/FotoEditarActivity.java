@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import mary_jhenny.tinderpetdefinitivo.Dao.ConexaoDao;
 import mary_jhenny.tinderpetdefinitivo.bean.Pet;
 
-public class FotoActivity extends AppCompatActivity {
+public class FotoEditarActivity extends AppCompatActivity {
 
     private Button btnAcessar;
     private Button btnFoto;
@@ -54,13 +54,15 @@ public class FotoActivity extends AppCompatActivity {
         @Override
         public void onClick(View view) {
             Pet pet = (Pet) getIntent().getSerializableExtra("pet");
+            int  petEditar = getIntent().getIntExtra("petEditar",-1);
+            Toast.makeText(FotoEditarActivity.this, petEditar+" aaaaaaaa", Toast.LENGTH_LONG).show();
             String activity_name = getIntent().getStringExtra("activity_name");
             String desc =txtEditarPet.getText().toString();
             pet.setFoto(uriFoto.toString());
             pet.setDescricao(desc);
-            ConexaoDao cdao = new ConexaoDao(FotoActivity.this);
-            cdao.inserirPet(pet);
-            Intent iFeed = new Intent(getApplicationContext(), FeedActivity.class);
+            ConexaoDao cdao = new ConexaoDao(FotoEditarActivity.this);
+            cdao.alterarPet(pet,petEditar);
+            Intent iFeed = new Intent(getApplicationContext(),PerfilActivity.class);
             iFeed.putExtra("pet",pet);
             startActivity(iFeed);
             finish();

@@ -20,7 +20,6 @@ import mary_jhenny.tinderpetdefinitivo.bean.Pet;
 public class AdapterCurtidas extends ArrayAdapter {
     private Context context;
     private ArrayList<Curtida> listaCurtidas;
-    private int id;
     public AdapterCurtidas(Context context, ArrayList<Curtida> listaCurtidas) {
         super(context,R.layout.item_curtida,listaCurtidas);
         this.context = context;
