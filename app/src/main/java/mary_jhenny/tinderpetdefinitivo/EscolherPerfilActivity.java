@@ -62,6 +62,7 @@ public class EscolherPerfilActivity extends AppCompatActivity {
            String email = i_email.getStringExtra("email");
            Intent intent = new Intent(getApplicationContext(), PerfilActivity.class);
            intent.putExtra("id_pet",id_pet);
+           intent.putExtra("pet",p);
            intent.putExtra("email",email);
            startActivity(intent);
            finish();

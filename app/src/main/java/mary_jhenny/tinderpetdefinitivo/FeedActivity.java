@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -20,10 +21,12 @@ public class FeedActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_feed);
         Intent i = getIntent();
         Pet p = (Pet)i.getSerializableExtra("pet");
+        int id = i.getIntExtra("id",-1);
         listaPets = findViewById(R.id.listaPets);
         ConexaoDao cdao = new ConexaoDao(FeedActivity.this);
         pets = cdao.listarPets();

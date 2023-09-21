@@ -61,6 +61,7 @@ public class FotoActivity extends AppCompatActivity {
             ConexaoDao cdao = new ConexaoDao(FotoActivity.this);
             cdao.inserirPet(pet);
             Intent iFeed = new Intent(getApplicationContext(), FeedActivity.class);
+            iFeed.putExtra("id",pet.getId());
             iFeed.putExtra("pet",pet);
             startActivity(iFeed);
             finish();

@@ -68,8 +68,6 @@ public class FotoEditarActivity extends AppCompatActivity {
             finish();
         }
     }
-
-
     //link do código de refêrencia para manipular o cadastro de fotos:https://www.youtube.com/watch?v=S4GFNZoxag8
     private class EscutadorFoto implements View.OnClickListener {
 

@@ -205,15 +205,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="1.0" />
 
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="44dp"
-            android:layout_height="31dp"
-            android:text="Button"
-            app:layout_constraintEnd_toStartOf="@+id/imgTeste"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="357dp" />
-
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

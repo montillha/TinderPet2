@@ -140,7 +140,7 @@ public class ConexaoDao {
         ContentValues valores;
         valores = new ContentValues();
         String where = "id="+id;
-        valores.put("id", p.getId());
+        valores.put("id",id);
         valores.put("nome", p.getNome());
         valores.put("especie", p.getEspecie());
         valores.put("raca", p.getRaca());
@@ -334,7 +334,6 @@ public class ConexaoDao {
     public ArrayList<TelTutor> listarTel_tutores(){
         Cursor cursor;
         cursor = db.rawQuery("SELECT * FROM telTutor", null);
-
         ArrayList<TelTutor> listaTel_tutores = new ArrayList<>();
 
         while (cursor.moveToNext()) {
