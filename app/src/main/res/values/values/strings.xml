@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Interface</string>
+
+    <string name="CadastroPet">PetConnect </string>
+    <string name="CadastroFoto">Adicione pelo menos uma foto</string>
+</resources>
+
+

@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".CadastrarPetActivity">
+
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="84dp"
+        android:text="Connect"
+        android:textColor="#FFFFFF"
+
+
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="188dp"
+        android:layout_marginBottom="20dp"
+        android:text="Pet"
+        android:textColor="#FF9800"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/containerComponents"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.361"
+        app:layout_constraintStart_toEndOf="@+id/imageView7"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/containerComponents"
+        style="@style/ContainerComponents"
+        android:layout_marginEnd="4dp"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnAcessarT"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+    <EditText
+        android:id="@+id/txtNomeP"
+        style="@style/Edit_Text_Pet"
+        android:layout_marginTop="24dp"
+        android:layout_marginBottom="14dp"
+        android:drawableRight="@drawable/pata_pet"
+        android:hint="Nome"
+        android:inputType="text"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/txtRaca"
+        app:layout_constraintEnd_toEndOf="@+id/containerComponents"
+        app:layout_constraintStart_toStartOf="@+id/containerComponents"
+        app:layout_constraintTop_toTopOf="@+id/containerComponents" />
+
+
+
+
+    <EditText
+        android:id="@+id/txtRaca"
+        style="@style/Edit_Text_Pet"
+        android:hint="Raça do animal"
+        android:inputType="text"
+        android:textSize="20sp"
+        android:drawableRight="@drawable/pata_pet"
+        app:layout_constraintTop_toBottomOf="@id/txtNomeP"
+        app:layout_constraintStart_toStartOf="@+id/containerComponents"
+        app:layout_constraintEnd_toEndOf="@+id/containerComponents" />
+
+    <EditText
+        android:id="@+id/txtEspecie"
+        android:drawableRight="@drawable/pata_pet"
+        style="@style/Edit_Text_Pet"
+        android:hint="Espécie do animal"
+        android:inputType="text"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@id/txtRaca"
+        app:layout_constraintStart_toStartOf="@+id/containerComponents"
+        app:layout_constraintEnd_toEndOf="@+id/containerComponents" />
+
+    <EditText
+        android:id="@+id/txtPorte"
+        style="@style/Edit_Text_Pet"
+        android:layout_marginBottom="15dp"
+        android:drawableRight="@drawable/pata_pet"
+        android:hint="Porte do animal"
+        android:inputType="text"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/txtCidade"
+        app:layout_constraintEnd_toEndOf="@+id/containerComponents"
+        app:layout_constraintStart_toStartOf="@+id/containerComponents"
+        app:layout_constraintTop_toBottomOf="@id/txtEspecie" />
+
+    <EditText
+        android:id="@+id/txtCidade"
+        android:drawableRight="@drawable/local"
+        style="@style/Edit_Text_Pet"
+        android:hint="Cidade"
+        android:inputType="text"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@id/txtPorte"
+        app:layout_constraintStart_toStartOf="@+id/containerComponents"
+        app:layout_constraintEnd_toEndOf="@+id/containerComponents" />
+
+    <EditText
+        android:id="@+id/txtEstado"
+        style="@style/Edit_Text_Pet"
+        android:layout_marginBottom="14dp"
+        android:drawableRight="@drawable/local"
+        android:hint="Estado"
+        android:inputType="text"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/txtNasc"
+        app:layout_constraintEnd_toEndOf="@+id/containerComponents"
+        app:layout_constraintStart_toStartOf="@+id/containerComponents"
+        app:layout_constraintTop_toBottomOf="@id/txtCidade" />
+
+    <EditText
+        android:id="@+id/txtNasc"
+        android:drawableRight="@drawable/calendario"
+        style="@style/Edit_Text_Pet"
+        android:hint="Nascimento do pet"
+        android:inputType="text"
+        android:textSize="20sp"
+        app:layout_constraintTop_toBottomOf="@id/txtEstado"
+        app:layout_constraintStart_toStartOf="@+id/containerComponents"
+        app:layout_constraintEnd_toEndOf="@+id/containerComponents" />
+
+    <EditText
+        android:id="@+id/txtPedigree"
+        style="@style/Edit_Text_Pet"
+        android:hint="Possui pedigree?"
+        android:inputType="text"
+        android:textSize="20sp"
+        android:drawableRight="@drawable/pata_pet"
+        app:layout_constraintTop_toBottomOf="@id/txtNasc"
+        app:layout_constraintStart_toStartOf="@+id/containerComponents"
+        app:layout_constraintEnd_toEndOf="@+id/containerComponents" />
+
+    <EditText
+        android:id="@+id/txtdesc"
+        style="@style/Edit_Text_Pet"
+        android:hint="Porte do animal"
+        android:inputType="text"
+        android:textSize="20sp"
+        android:drawableRight="@drawable/pata_pet"
+        app:layout_constraintTop_toBottomOf="@id/txtPedigree"
+        app:layout_constraintStart_toStartOf="@+id/containerComponents"
+        app:layout_constraintEnd_toEndOf="@+id/containerComponents" />
+
+    <EditText
+        android:id="@+id/txtSexo"
+        style="@style/Edit_Text_Pet"
+        android:hint="Sexo do animal"
+        android:inputType="text"
+        android:textSize="20sp"
+        android:drawableRight="@drawable/pata_pet"
+        app:layout_constraintTop_toBottomOf="@id/txtPedigree"
+        app:layout_constraintStart_toStartOf="@+id/containerComponents"
+        app:layout_constraintEnd_toEndOf="@+id/containerComponents" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnAcessarT"
+        style="@style/Button"
+        android:layout_width="218dp"
+        android:layout_height="64dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="120dp"
+        android:text="Cadastrar"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/containerComponents" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="120dp"
+        android:layout_height="163dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/containerComponents"
+        app:layout_constraintEnd_toStartOf="@+id/textView9"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/bichos_pet" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
